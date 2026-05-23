@@ -198,6 +198,25 @@ musicBtn.addEventListener("click", function(){
     musicBtn.textContent = "♪";
   }
 });
+  document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    audio.pause();
+    audio.currentTime = 0;
+    musicBtn.textContent = "♪";
+  }
+});
+
+window.addEventListener("pagehide", () => {
+  audio.pause();
+  audio.currentTime = 0;
+  musicBtn.textContent = "♪";
+});
+
+window.addEventListener("blur", () => {
+  audio.pause();
+  audio.currentTime = 0;
+  musicBtn.textContent = "♪";
+});
 function updateCountdown(){
   const target = new Date("2026-06-26T16:00:00").getTime();
   const now = new Date().getTime();
@@ -228,12 +247,7 @@ revealEls.forEach(el => observer.observe(el));
 setTimeout(() => {
   document.querySelector(".hero-content").classList.add("visible");
 }, 300);
-document.addEventListener("visibilitychange", () => {
 
-  if (document.hidden) {
-    audio.pause();
-    musicBtn.textContent = "♪";
-  }
 
 });
 </script>

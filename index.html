@@ -99,8 +99,28 @@ img{max-width:100%;display:block}
   .grid{gap:8px}
   .box{min-width:66px}
   .num{font-size:24px;padding:12px 8px}
-  .heart-wrap{width:100px}
-}
+  .heart-wrap{width:@media print {
+
+  @page{
+    margin:0;
+    size:auto;
+  }
+
+  body{
+    margin:0;
+    padding:0;
+    background:white;
+  }
+
+  .music{
+    display:none;
+  }
+
+  .hero::after{
+    display:none;
+  }
+
+}  
 </style>
 </head>
 

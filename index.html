@@ -228,6 +228,14 @@ revealEls.forEach(el => observer.observe(el));
 setTimeout(() => {
   document.querySelector(".hero-content").classList.add("visible");
 }, 300);
+document.addEventListener("visibilitychange", () => {
+
+  if (document.hidden) {
+    audio.pause();
+    musicBtn.textContent = "♪";
+  }
+
+});
 </script>
 </body>
 </html>
